@@ -178,8 +178,8 @@
         const config = {
             images: {
                 hero: "images/09faab52-25d4-49ff-8b70-11d3806e90b4.jpg",
-                aramayis: "images/c1e919a0-02cb-4c26-bf1c-126bc8fdd73e.jpg", // Using provided image for Aramayis
-                mesrop: "images/49994c42e42a46d5abdf686a22d4eba1.jpg", // Placeholder for Mesrop
+                aramayis: "images/c1e919a0-02cb-4c26-bf1c-126bc8fdd73e.jpg", 
+                mesrop: "images/WhatsApp Image 2026-10-20 at 17.28.07.jpeg",
                 project1: "images/49994c42e42a46d5abdf686a22d4eba1.jpg",
                 project2: "images/living-room.webp",
                 project3: "images/luxury-modern-living-room-interior-beige-sofa-classic-wall-panels-elegant-brown-leather-armchair-marble-coffee-table-422256808.webp"
@@ -328,7 +328,7 @@
                     </div>
                 </section>
 
-                <!-- Hero Section: Split Layout (Responsive) -->
+                <!-- Hero 1: Aramayis Harutyunyan -->
                 <section class="relative min-h-screen w-full flex flex-col md:flex-row">
                     <!-- Left Side: Description & CV -->
                     <div class="w-full md:w-1/2 bg-stone-100 flex items-center justify-center p-6 md:p-16 lg:p-24 order-2 md:order-1 py-12 md:py-0">
@@ -350,7 +350,7 @@
                                     </div>
                                     <div>
                                         <span class="block text-xs uppercase text-stone-400 mb-1">Location</span>
-                                        <span class="font-medium text-stone-800">Yerevan, Armenia</span>
+                                        <span class="font-medium text-stone-800">Ptghni, Armenia</span>
                                     </div>
                                     <div class="col-span-2">
                                         <span class="block text-xs uppercase text-stone-400 mb-1">Education</span>
@@ -369,8 +369,54 @@
 
                     <!-- Right Side: Image -->
                     <div class="w-full md:w-1/2 h-[50vh] md:h-auto relative order-1 md:order-2">
-                        <img src="${heroImage}" class="absolute inset-0 w-full h-full object-cover" alt="Architectural Hero">
+                        <img src="${config.images.aramayis}" class="absolute inset-0 w-full h-full object-cover" alt="Aramayis Harutyunyan">
                         <div class="absolute inset-0 bg-stone-900/10 md:bg-transparent"></div>
+                    </div>
+                </section>
+
+                <!-- Hero 2: Mesrop Sahakyan -->
+                <section class="relative min-h-screen w-full flex flex-col md:flex-row bg-stone-200">
+                    <!-- Left Side: Image (Reversed for visual interest) -->
+                    <div class="w-full md:w-1/2 h-[50vh] md:h-auto relative order-1">
+                        <img src="${config.images.mesrop}" class="absolute inset-0 w-full h-full object-cover" alt="Mesrop Sahakyan">
+                        <div class="absolute inset-0 bg-stone-900/10 md:bg-transparent"></div>
+                    </div>
+
+                    <!-- Right Side: Description & CV -->
+                    <div class="w-full md:w-1/2 bg-stone-200 flex items-center justify-center p-6 md:p-16 lg:p-24 order-2 py-12 md:py-0">
+                        <div class="max-w-lg fade-in-up w-full">
+                            <span class="block text-xs font-bold uppercase tracking-[0.2em] text-stone-500 mb-4">Interior Designer</span>
+                            <h2 class="text-4xl md:text-5xl font-serif mb-6 text-stone-900 leading-tight">MESROP<br>SAHAKYAN</h2>
+                            
+                            <div class="w-16 h-1 bg-stone-900 mb-8 rounded-full"></div>
+                            
+                            <div class="space-y-6 text-stone-600 font-light text-base md:text-lg">
+                                <p>
+                                    Co-founder of <strong class="text-stone-900">Archivolt Studio</strong>. Bringing academic rigor and creative vision to interior spaces. Focused on creating atmospheres that enhance human experience through materiality and light.
+                                </p>
+                                
+                                <div class="grid grid-cols-2 gap-4 text-sm mt-8 border-t border-stone-300 pt-6">
+                                    <div>
+                                        <span class="block text-xs uppercase text-stone-400 mb-1">Age</span>
+                                        <span class="font-medium text-stone-800">28 Years Old</span>
+                                    </div>
+                                    <div>
+                                        <span class="block text-xs uppercase text-stone-400 mb-1">Location</span>
+                                        <span class="font-medium text-stone-800">Yerevan, Armenia</span>
+                                    </div>
+                                    <div class="col-span-2">
+                                        <span class="block text-xs uppercase text-stone-400 mb-1">Education</span>
+                                        <span class="font-medium text-stone-800">Yerevan State University of Architecture</span>
+                                        <span class="block text-xs text-stone-500 mt-1">Postgraduate Student | Candidate of Sciences</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                                <a href="#projects" class="bg-stone-900 text-white px-8 py-3 text-sm uppercase tracking-widest hover:bg-stone-700 transition-all duration-300 rounded-full text-center">View Interiors</a>
+                                <a href="#/about" class="border border-stone-900 text-stone-900 px-8 py-3 text-sm uppercase tracking-widest hover:bg-stone-200 transition-all duration-300 rounded-full text-center">Our Philosophy</a>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -440,7 +486,7 @@
                                 </p>
                                 <ul class="text-sm text-stone-500 space-y-1">
                                     <li>• 30 Years Old</li>
-                                    <li>• Based in Yerevan</li>
+                                    <li>• Based in Ptghni, Armenia</li>
                                     <li>• Polytechnic University Graduate</li>
                                 </ul>
                             </div>
@@ -453,12 +499,12 @@
                                 <h2 class="text-3xl font-serif mb-2">Mesrop Sahakyan</h2>
                                 <p class="text-xs uppercase tracking-widest text-stone-500 mb-4">Co-Founder | Interior Designer</p>
                                 <p class="text-stone-600 font-light leading-relaxed mb-4">
-                                    Mesrop complements the architectural framework with his keen eye for interior aesthetics. He focuses on material selection, spatial flow, and creating atmospheres that resonate with the inhabitants. His work ensures that the interior narrative aligns perfectly with the architectural shell.
+                                    Mesrop complements the architectural framework with his keen eye for interior aesthetics. As a postgraduate student and Candidate of Sciences at Yerevan State University of Architecture, he focuses on material selection, spatial flow, and creating atmospheres that resonate with the inhabitants.
                                 </p>
                                 <ul class="text-sm text-stone-500 space-y-1">
-                                    <li>• Interior Concept Development</li>
-                                    <li>• Material & Finish Selection</li>
-                                    <li>• Spatial Planning</li>
+                                    <li>• 28 Years Old</li>
+                                    <li>• Based in Yerevan, Armenia</li>
+                                    <li>• Postgraduate Student | Candidate of Sciences</li>
                                 </ul>
                             </div>
                         </div>
