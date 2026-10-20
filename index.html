@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archivolt Studio | Aramayis Harutyunyan</title>
+    <title>Archivolt Studio | Architecture & Interior Design</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,17 +84,12 @@
         #loader {
             position: fixed;
             inset: 0;
-            background: #F5F5F0;
+            background: #1a1a1a;
             z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: opacity 0.5s ease;
-        }
-
-        /* Mobile Menu Transitions */
-        #mobile-menu {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
 </head>
@@ -102,10 +97,10 @@
 
     <!-- Loader -->
     <div id="loader">
-        <h1 class="text-2xl tracking-[0.3em] font-light uppercase animate-pulse text-stone-800">Archivolt</h1>
+        <h1 class="text-3xl tracking-[0.3em] font-light uppercase animate-pulse text-white">ARCHIVOLT</h1>
     </div>
 
-    <!-- Header - Colorful/Dark -->
+    <!-- Header - Dark/Colorful -->
     <header id="header" class="fixed top-0 w-full z-50 transition-all duration-300 py-4 px-6 md:py-6 md:px-12 flex justify-between items-center bg-stone-900 text-white shadow-md">
         <a href="#/" class="text-xl md:text-2xl font-serif tracking-widest uppercase font-bold z-50 relative">
             ARCHIVOLT
@@ -122,7 +117,7 @@
             Contact
         </a>
 
-        <!-- Mobile Menu Button (Hamburger) -->
+        <!-- Mobile Menu Button -->
         <button id="mobile-menu-btn" class="md:hidden z-50 p-2 focus:outline-none">
             <div class="w-6 h-0.5 bg-white mb-1.5 transition-all duration-300" id="bar1"></div>
             <div class="w-6 h-0.5 bg-white mb-1.5 transition-all duration-300" id="bar2"></div>
@@ -149,7 +144,7 @@
             <div class="col-span-1 md:col-span-2">
                 <h2 class="text-white text-2xl font-serif tracking-widest mb-6">ARCHIVOLT STUDIO</h2>
                 <p class="max-w-md text-sm leading-relaxed font-light">
-                    Creating thoughtful architectural spaces through design, technical precision, and a deep understanding of the built environment.
+                    A collaborative studio where architecture meets interior design. Creating holistic environments through the synergy of structure and space.
                 </p>
             </div>
             
@@ -183,7 +178,8 @@
         const config = {
             images: {
                 hero: "images/09faab52-25d4-49ff-8b70-11d3806e90b4.jpg",
-                profile: "images/c1e919a0-02cb-4c26-bf1c-126bc8fdd73e.jpg",
+                aramayis: "images/c1e919a0-02cb-4c26-bf1c-126bc8fdd73e.jpg", // Using provided image for Aramayis
+                mesrop: "images/49994c42e42a46d5abdf686a22d4eba1.jpg", // Placeholder for Mesrop
                 project1: "images/49994c42e42a46d5abdf686a22d4eba1.jpg",
                 project2: "images/living-room.webp",
                 project3: "images/luxury-modern-living-room-interior-beige-sofa-classic-wall-panels-elegant-brown-leather-armchair-marble-coffee-table-422256808.webp"
@@ -236,9 +232,7 @@
         function handleRoute() {
             const hash = window.location.hash.slice(1) || '/';
             
-            // Close mobile menu if open
             closeMobileMenu();
-
             window.scrollTo(0, 0);
             updateHeader(hash);
 
@@ -278,8 +272,6 @@
             if (isMenuOpen) {
                 mobileMenu.classList.remove('translate-x-full');
                 document.body.style.overflow = 'hidden';
-                
-                // Animate Hamburger to X
                 bar1.classList.add('rotate-45', 'translate-y-2');
                 bar2.classList.add('opacity-0');
                 bar3.classList.add('-rotate-45', '-translate-y-2', 'w-6');
@@ -292,22 +284,16 @@
             isMenuOpen = false;
             mobileMenu.classList.add('translate-x-full');
             document.body.style.overflow = '';
-            
-            // Reset Hamburger
             bar1.classList.remove('rotate-45', 'translate-y-2');
             bar2.classList.remove('opacity-0');
             bar3.classList.remove('-rotate-45', '-translate-y-2', 'w-6');
         }
 
         mobileBtn.addEventListener('click', toggleMobileMenu);
-
         document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                closeMobileMenu();
-            });
+            link.addEventListener('click', closeMobileMenu);
         });
 
-        // Set Year
         document.getElementById('year').textContent = new Date().getFullYear();
 
         // --- Render Functions ---
@@ -329,13 +315,26 @@
             `).join('');
 
             app.innerHTML = `
+                <!-- Brand Intro Section -->
+                <section class="bg-stone-900 text-white py-24 md:py-32 px-6 text-center">
+                    <div class="max-w-4xl mx-auto fade-in-up">
+                        <h1 class="text-5xl md:text-7xl font-serif mb-6 tracking-tight">ARCHIVOLT</h1>
+                        <p class="text-lg md:text-xl font-light tracking-wide uppercase mb-8 opacity-80">Architecture & Interior Design Studio</p>
+                        <div class="w-24 h-0.5 bg-white mx-auto mb-8"></div>
+                        <p class="text-stone-300 max-w-2xl mx-auto leading-relaxed">
+                            We believe in the seamless integration of structure and interior. 
+                            Our approach combines architectural precision with interior warmth to create spaces that are both functional and emotionally resonant.
+                        </p>
+                    </div>
+                </section>
+
                 <!-- Hero Section: Split Layout (Responsive) -->
-                <section class="relative min-h-screen w-full flex flex-col md:flex-row pt-16 md:pt-0">
+                <section class="relative min-h-screen w-full flex flex-col md:flex-row">
                     <!-- Left Side: Description & CV -->
                     <div class="w-full md:w-1/2 bg-stone-100 flex items-center justify-center p-6 md:p-16 lg:p-24 order-2 md:order-1 py-12 md:py-0">
                         <div class="max-w-lg fade-in-up w-full">
-                            <span class="block text-xs font-bold uppercase tracking-[0.2em] text-stone-500 mb-4">Architect Portfolio</span>
-                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif mb-6 text-stone-900 leading-tight">ARAMAYIS<br>HARUTYUNYAN</h1>
+                            <span class="block text-xs font-bold uppercase tracking-[0.2em] text-stone-500 mb-4">Lead Architect</span>
+                            <h2 class="text-4xl md:text-5xl font-serif mb-6 text-stone-900 leading-tight">ARAMAYIS<br>HARUTYUNYAN</h2>
                             
                             <div class="w-16 h-1 bg-stone-900 mb-8 rounded-full"></div>
                             
@@ -363,7 +362,7 @@
 
                             <div class="mt-10 flex flex-col sm:flex-row gap-4">
                                 <a href="#projects" class="bg-stone-900 text-white px-8 py-3 text-sm uppercase tracking-widest hover:bg-stone-700 transition-all duration-300 rounded-full text-center">View Work</a>
-                                <a href="#/about" class="border border-stone-900 text-stone-900 px-8 py-3 text-sm uppercase tracking-widest hover:bg-stone-200 transition-all duration-300 rounded-full text-center">About Me</a>
+                                <a href="#/about" class="border border-stone-900 text-stone-900 px-8 py-3 text-sm uppercase tracking-widest hover:bg-stone-200 transition-all duration-300 rounded-full text-center">About Us</a>
                             </div>
                         </div>
                     </div>
@@ -375,7 +374,7 @@
                     </div>
                 </section>
 
-                <!-- Experience Section: Readable & Rounded Style -->
+                <!-- Experience Section -->
                 <section class="py-16 md:py-24 px-6 md:px-12 max-w-7xl mx-auto">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
                         <div class="md:col-span-4 fade-in-up">
@@ -388,7 +387,6 @@
                             </p>
                         </div>
                         
-                        <!-- Rounded Cards for Responsibilities -->
                         <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 fade-in-up delay-100">
                             ${[
                                 {t: "Design & Planning", d: "Architectural design and building planning with focus on functionality."},
@@ -423,14 +421,46 @@
 
         function renderAbout() {
             app.innerHTML = `
-                <section class="pt-24 md:pt-32 pb-24 px-6 md:px-12 max-w-5xl mx-auto min-h-screen">
+                <section class="pt-24 md:pt-32 pb-24 px-6 md:px-12 max-w-6xl mx-auto min-h-screen">
                     <div class="fade-in-up">
-                        <h1 class="text-4xl md:text-6xl font-serif mb-8 md:mb-12 text-center">About Archivolt Studio</h1>
+                        <h1 class="text-4xl md:text-6xl font-serif mb-4 text-center">The Founders</h1>
+                        <p class="text-center text-stone-500 mb-16 max-w-2xl mx-auto">Archivolt Studio is led by two passionate professionals dedicated to creating holistic living environments.</p>
                         
-                        <div class="prose prose-stone max-w-none text-lg font-light leading-relaxed mb-16 text-center px-4">
-                            <p class="mb-6">
-                                Archivolt Studio is an architectural design practice focused on creating considered, functional, and visually distinctive spaces. Combining architectural thinking, technical knowledge, and an understanding of construction processes, the studio approaches each project as a balance between concept, context, material, and purpose.
-                            </p>
+                        <!-- Founders Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 mb-24">
+                            <!-- Aramayis -->
+                            <div class="group">
+                                <div class="image-reveal aspect-[3/4] mb-6 bg-stone-200">
+                                    <img src="${config.images.aramayis}" alt="Aramayis Harutyunyan" class="grayscale group-hover:grayscale-0 transition-all duration-500">
+                                </div>
+                                <h2 class="text-3xl font-serif mb-2">Aramayis Harutyunyan</h2>
+                                <p class="text-xs uppercase tracking-widest text-stone-500 mb-4">Co-Founder | Architect</p>
+                                <p class="text-stone-600 font-light leading-relaxed mb-4">
+                                    With over 7 years of experience at A41 Studio, Aramayis brings technical precision and structural expertise to every project. A graduate of the National Polytechnic University of Armenia, he specializes in architectural design, construction supervision, and technical documentation.
+                                </p>
+                                <ul class="text-sm text-stone-500 space-y-1">
+                                    <li>• 30 Years Old</li>
+                                    <li>• Based in Yerevan</li>
+                                    <li>• Polytechnic University Graduate</li>
+                                </ul>
+                            </div>
+
+                            <!-- Mesrop -->
+                            <div class="group">
+                                <div class="image-reveal aspect-[3/4] mb-6 bg-stone-200">
+                                    <img src="${config.images.mesrop}" alt="Mesrop Sahakyan" class="grayscale group-hover:grayscale-0 transition-all duration-500">
+                                </div>
+                                <h2 class="text-3xl font-serif mb-2">Mesrop Sahakyan</h2>
+                                <p class="text-xs uppercase tracking-widest text-stone-500 mb-4">Co-Founder | Interior Designer</p>
+                                <p class="text-stone-600 font-light leading-relaxed mb-4">
+                                    Mesrop complements the architectural framework with his keen eye for interior aesthetics. He focuses on material selection, spatial flow, and creating atmospheres that resonate with the inhabitants. His work ensures that the interior narrative aligns perfectly with the architectural shell.
+                                </p>
+                                <ul class="text-sm text-stone-500 space-y-1">
+                                    <li>• Interior Concept Development</li>
+                                    <li>• Material & Finish Selection</li>
+                                    <li>• Spatial Planning</li>
+                                </ul>
+                            </div>
                         </div>
 
                         <!-- Contact Form Section -->
@@ -457,10 +487,6 @@
                                                 <p class="text-lg">Yerevan, Armenia</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                    <div class="mt-12">
-                                        <p class="text-xs text-stone-500">Available for freelance projects and consultations.</p>
                                     </div>
                                 </div>
                                 
